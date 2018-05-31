@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jobs.apps.JobsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfoliodb',
+        'USER': 'postgres',
+        'PASSWORD': 'Batman1215',
+        'HOST':'localhost',
+        'PORT':'5432',
     }
 }
 
@@ -118,3 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# Were saying that when someone is using media we want it to go to the
+# media section in our DB, hence MEDIA_ROOT.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# This says when someone is trying to access the media where do they go.
+
+MEDIA_URL = '/media/'
