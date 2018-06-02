@@ -123,7 +123,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATICFILES_DIRS = [
+
+    os.path.join(BASE_DIR, 'portfolio/static')
+
+
+]
+
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Were saying that when someone is using media we want it to go to the
 # media section in our DB, hence MEDIA_ROOT.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
