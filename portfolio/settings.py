@@ -140,3 +140,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # This says when someone is trying to access the media where do they go.
 
 MEDIA_URL = '/media/'
+
+try:
+    from local_setting import *
+except ImportError:
+    pass
